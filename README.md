@@ -1,4 +1,5 @@
-![image](https://github.com/user-attachments/assets/af582c22-acde-4f32-88b5-02d1c29916e8)
+![image](https://github.com/user-attachments/assets/275d624e-54c8-4394-a2f2-083bd0e10f78)
 
+From my old site (RIP) - this is an old back up and I want to finish it at some point.
 
-A back up from an old website I used to have :)
+Its a way to brute force learn the Zhuyin characters, where the idea came from this: https://gohoneko.neocities.org/learn/kana
