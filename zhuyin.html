@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guóyu - Zhuyin</title>
+    <link rel="icon" type="image/png" href="taiwan.png">
+    <style>
+        body {
+            background: #000000;
+            font-family: Verdana, Arial, sans-serif;
+            text-align: center;
+        }
+        #container {
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto;
+            background: #FFFFFF;
+            border: 1px solid #000000;
+            padding: 20px;
+        }
+        header {
+            background: #FF0000;
+            padding: 10px;
+            border-bottom: 2px solid #FF0000;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin: 0 10px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #0000FF;
+        }
+        main {
+            margin: 20px 0;
+        }
+        footer {
+            background: #FF0000;
+            padding: 10px;
+            border-top: 2px solid #FF0000;
+            font-size: 0.8em;
+            color: #FFFFFF;
+        }
+        .table-container {
+            margin: 20px auto;
+            width: 80%;
+            max-width: 600px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+        th, td {
+            border: 1px solid #000000;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #DDDDDD;
+        }
+        .checkbox {
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+        .input-field {
+            margin: 15px 0;
+            padding: 10px;
+            font-size: 1.2em;
+            width: 100%;
+            max-width: 400px;
+            border: 1px solid #000000;
+        }
+        .display-area {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        .score-display {
+            font-size: 1em;
+            margin-top: 10px;
+            color: #333333;
+        }
+    </style>
+</head>
+<body style="background-image: url(https://a.travel-assets.com/findyours-php/viewfinder/images/res70/498000/498737-taiwan.jpg); background-repeat: no-repeat; background-attachment: fixed; background-size: cover;">
+    <div id="container">
+        <header>
+            <img src="guoyu.png" alt="Guoyu Logo">
+        </header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="misc.html">Misc</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+        <main>
+            <section>
+                <h2>Zhuyin</h2>
+				<p>This is still a work in progress, the initials are the only thing that works as of right now and I am mostly putting this on here as a means of a backup point</p>
+				<p>Select a column, work thorough it until you stop making mistakes then either untick and do another or tick it as well.</p>
+                <div class="display-area" id="displayZhuyin">_</div>
+				
+                <input type="text" placeholder="" id="textInput" class="input-field">
+				
+                <div class="score-display" id="scoreDisplay">Score: 0/0</div>
+                <br><br><hr>
+
+                <div class="table-container">
+                    <h3>Initials</h3>
+                    <span style="cursor: pointer; color: blue; text-decoration: underline;" onclick="toggleAll('initialsTable')">Check All / Uncheck All</span>
+                    <table id="initialsTable">
+                        <tr>
+                            <th><input type="checkbox" value="0" onchange="updateSelection()"> </th>
+                            <th><input type="checkbox" value="1" onchange="updateSelection()"> </th>
+                            <th><input type="checkbox" value="2" onchange="updateSelection()"> </th>
+                            <th><input type="checkbox" value="3" onchange="updateSelection()"> </th>
+                            <th><input type="checkbox" value="4" onchange="updateSelection()"> </th>
+                            <th><input type="checkbox" value="5" onchange="updateSelection()"> </th>
+                        </tr>
+                        <tr>
+                            <td>ㄅ<br>b</td><td>ㄉ<br>d</td><td>ㄍ<br>g</td><td>ㄐ<br>j</td><td>ㄓ<br>zh</td><td>ㄗ<br>z</td>
+                        </tr>
+                        <tr>
+                            <td>ㄆ<br>p</td><td>ㄊ<br>t</td><td>ㄎ<br>k</td><td>ㄑ<br>q</td><td>ㄔ<br>ch</td><td>ㄘ<br>c</td>
+                        </tr>
+                        <tr>
+                            <td>ㄇ<br>m</td><td>ㄋ<br>n</td><td>ㄏ<br>h</td><td>ㄒ<br>x</td><td>ㄕ<br>sh</td><td>ㄙ<br>s</td>
+                        </tr>
+                        <tr>
+                            <td>ㄈ<br>f</td><td>ㄌ<br>l</td><td></td><td></td><td>ㄖ<br>r</td><td></td>
+                        </tr>
+                    </table>
+					<h3>Finals</h3>
+					<span style="cursor: pointer; color: blue; text-decoration: underline;" onclick="toggleAll('finalsTable')">Check All / Uncheck All</span>
+                    <table id="finalsTable">
+                        <tr>
+                            <th><input type="checkbox" value="a-group" onchange="updateSelection()"> </th>
+                            <th><input type="checkbox" value="o-group" onchange="updateSelection()"> </th>
+                            <th><input type="checkbox" value="e-group" onchange="updateSelection()"> </th>
+                            <th><input type="checkbox" value="i-group" onchange="updateSelection()"> </th>
+                            <th><input type="checkbox" value="u-group" onchange="updateSelection()"> </th>
+                            <th><input type="checkbox" value="yu-group" onchange="updateSelection()"> </th>
+                            <th><input type="checkbox" value="ia-group" onchange="updateSelection()"> </th>
+                            <th><input type="checkbox" value="ua-group" onchange="updateSelection()"> </th>
+                        </tr>
+                        <tr>
+                            <td>ㄚ<br>a</td><td>ㄛ<br>o</td><td>ㄜ<br>e</td><td>ㄧ<br>i</td><td>ㄨ<br>u</td><td>ㄩ<br>ü</td><td>ㄧㄚ<br>ia</td><td>ㄨㄚ<br>ua</td>
+                        </tr>
+                        <tr>
+                            <td>ㄞ<br>ai</td><td>ㄡ<br>ou</td><td>ㄟ<br>ei</td><td>ㄧㄝ<br>ie</td><td>ㄨㄟ<br>ui</td><td>ㄩㄝ<br>üe</td><td>ㄧㄢ<br>ian</td><td>ㄨㄞ<br>uai</td>
+                        </tr>
+                        <tr>
+                            <td>ㄢ<br>an</td><td>ㄨㄥ<br>ong</td><td>ㄣ<br>en</td><td>ㄧㄣ<br>in</td><td>ㄨㄣ<br>un</td><td>ㄩㄣ<br>ün</td><td>ㄧㄤ<br>iang</td><td>ㄨㄢ<br>uan</td>
+                        </tr>
+                        <tr>
+                            <td>ㄤ<br>ang</td><td>ㄩㄥ<br>iong</td><td>ㄥ<br>eng</td><td>ㄧㄥ<br>ing</td><td>ㄨㄛ<br>uo</td><td>ㄩㄢ<br>üan</td><td>ㄧㄠ<br>iao</td><td>ㄨㄤ<br>uang</td>
+                        </tr>
+                        <tr>
+                            <td>ㄠ<br>ao</td><td></td><td>ㄦ<br>er</td><td>ㄧㄡ<br>iu</td><td></td><td></td><td></td><td></td>
+                        </tr>
+                    </table>
+          <h3>Combined</h3>
+					<span style="cursor: pointer; color: blue; text-decoration: underline;" onclick="toggleAll('combinedTable')">Check All / Uncheck All</span>
+					
+					      <table id="combinedTable">
+                      <tr>
+                      <th>Initials</th>
+                      <th>Finals</th>
+                      </tr>
+                      <tr>
+                      <td><input type="checkbox" value="combinedInits1" onchange="updateSelection()">ㄅ, ㄆ, ㄇ, ㄈ<br><input type="checkbox" value="combinedInits2" onchange="updateSelection()">ㄉ, ㄊ, ㄋ, ㄌ<br>
+                      <input type="checkbox" value="combinedInits3" onchange="updateSelection()">ㄍ, ㄎ, ㄏ<br><input type="checkbox" value="combinedInits4" onchange="updateSelection()">ㄐ, ㄑ, ㄒ<br>
+                      <input type="checkbox" value="combinedInits5" onchange="updateSelection()">ㄓ, ㄔ, ㄕ, ㄖ<br><input type="checkbox" value="combinedInits6" onchange="updateSelection()">ㄗ, ㄘ, ㄙ
+                      </td>
+                      <td><input type="checkbox" value="combinedFins1" onchange="updateSelection()">ㄚ, ㄞ, ㄢ, ㄤ, ㄠ<br><input type="checkbox" value="combinedFins2" onchange="updateSelection()">ㄛ, ㄡ, ㄨㄥ, ㄩㄥ<br>
+                      <input type="checkbox" value="combinedFins3" onchange="updateSelection()">ㄜ, ㄟ, ㄣ, ㄥ, ㄦ<br><input type="checkbox" value="combinedFins4" onchange="updateSelection()">ㄧ, ㄧㄝ, ㄧㄣ, ㄧㄥ, ㄧㄡ<br>
+                      <input type="checkbox" value="combinedFins5" onchange="updateSelection()">ㄨ, ㄨㄟ, ㄨㄣ, ㄨㄛ<br><input type="checkbox" value="combinedFins6" onchange="updateSelection()">ㄩ, ㄩㄝ, ㄩㄣ, ㄩㄢ<br>
+                      <input type="checkbox" value="combinedFins7" onchange="updateSelection()">ㄧㄚ, ㄧㄢ, ㄧㄤ, ㄧㄠ<br><input type="checkbox" value="combinedFins8" onchange="updateSelection()">ㄨㄚ, ㄨㄞ, ㄨㄢ, ㄨㄤ<br>
+                      </td>
+                      </tr>
+
+                </table>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>“Thinking you’re no-good and worthless is the worst thing you can do.” - Nobito, Doraemon</p>
+        </footer>
+    </div>
+
+        <script>
+        let selectedInitials = [];
+        let selectedFinals = [];
+        let currentZhuyinCombo = '';
+        let correctScore = 0;
+        let totalScore = 0;
+
+        const initialsGroups = {
+            "0": ["ㄅ", "ㄆ", "ㄇ", "ㄈ"],
+            "1": ["ㄉ", "ㄊ", "ㄋ", "ㄌ"],
+            "2": ["ㄍ", "ㄎ", "ㄏ"],
+            "3": ["ㄐ", "ㄑ", "ㄒ"],
+            "4": ["ㄓ", "ㄔ", "ㄕ", "ㄖ"],
+            "5": ["ㄗ", "ㄘ", "ㄙ"]
+        };
+
+        const finalsGroups = {
+            "a-group": ["ㄚ", "ㄞ", "ㄢ", "ㄤ", "ㄠ"],
+            "o-group": ["ㄛ", "ㄡ", "ㄨㄥ", "ㄩㄥ"],
+            "e-group": ["ㄜ", "ㄟ", "ㄣ", "ㄥ", "ㄦ"],
+            "i-group": ["ㄧ", "ㄧㄝ", "ㄧㄣ", "ㄧㄥ", "ㄧㄡ"],
+            "u-group": ["ㄨ", "ㄨㄟ", "ㄨㄣ", "ㄨㄛ"],
+            "yu-group": ["ㄩ", "ㄩㄝ", "ㄩㄣ", "ㄩㄢ"],
+            "ia-group": ["ㄧㄚ", "ㄧㄢ", "ㄧㄤ", "ㄧㄠ"],
+            "ua-group": ["ㄨㄚ", "ㄨㄞ", "ㄨㄢ", "ㄨㄤ"]
+        };
+
+        function updateSelection() {
+            // Capture selected initials and finals
+            selectedInitials = Array.from(document.querySelectorAll("#initialsTable input[type=checkbox]:checked"))
+                .map(checkbox => checkbox.value);
+            selectedFinals = Array.from(document.querySelectorAll("#finalsTable input[type=checkbox]:checked"))
+                .map(checkbox => checkbox.value);
+
+            if (selectedInitials.length > 0 && selectedFinals.length > 0) {
+                chooseRandomCombinedZhuyin();
+            } else {
+                document.getElementById("displayZhuyin").textContent = "_"; 
+            }
+        }
+
+        function chooseRandomCombinedZhuyin() {
+            const randomInitialGroup = selectedInitials[Math.floor(Math.random() * selectedInitials.length)];
+            const randomFinalGroup = selectedFinals[Math.floor(Math.random() * selectedFinals.length)];
+
+            const initialZhuyin = initialsGroups[randomInitialGroup][Math.floor(Math.random() * initialsGroups[randomInitialGroup].length)];
+            const finalZhuyin = finalsGroups[randomFinalGroup][Math.floor(Math.random() * finalsGroups[randomFinalGroup].length)];
+
+            currentZhuyinCombo = initialZhuyin + finalZhuyin;
+            document.getElementById("displayZhuyin").textContent = currentZhuyinCombo;
+        }
+
+        function checkInput() {
+            const input = document.getElementById("textInput").value.trim();
+            const correctPinyin = getPinyinForZhuyinCombo(currentZhuyinCombo);
+
+            if (input === correctPinyin) {
+                correctScore++;
+                document.getElementById("textInput").value = ''; 
+                chooseRandomCombinedZhuyin();
+            }
+            totalScore++;
+            document.getElementById("scoreDisplay").textContent = `Score: ${correctScore}/${totalScore}`;
+        }
+
+        function getPinyinForZhuyinCombo(zhuyinCombo) {
+            const zhuyinToPinyin = {
+                "ㄅ": "b", "ㄆ": "p", "ㄇ": "m", "ㄈ": "f",
+                "ㄉ": "d", "ㄊ": "t", "ㄋ": "n", "ㄌ": "l",
+                "ㄍ": "g", "ㄎ": "k", "ㄏ": "h",
+                "ㄐ": "j", "ㄑ": "q", "ㄒ": "x",
+                "ㄓ": "zh", "ㄔ": "ch", "ㄕ": "sh", "ㄖ": "r",
+                "ㄗ": "z", "ㄘ": "c", "ㄙ": "s",
+                "ㄚ": "a", "ㄞ": "ai", "ㄢ": "an", "ㄤ": "ang", "ㄠ": "ao",
+                "ㄛ": "o", "ㄡ": "ou", "ㄨㄥ": "ong", "ㄩㄥ": "yong",
+                "ㄜ": "e", "ㄟ": "ei", "ㄣ": "en", "ㄥ": "eng", "ㄦ": "er",
+                "ㄧ": "i", "ㄧㄝ": "ie", "ㄧㄣ": "in", "ㄧㄥ": "ing", "ㄧㄡ": "iu",
+                "ㄨ": "u", "ㄨㄟ": "ui", "ㄨㄣ": "un", "ㄨㄛ": "uo",
+                "ㄩ": "ü", "ㄩㄝ": "üe", "ㄩㄣ": "ün", "ㄩㄢ": "üan",
+                "ㄧㄚ": "ia", "ㄧㄢ": "ian", "ㄧㄤ": "iang", "ㄧㄠ": "iao",
+                "ㄨㄚ": "ua", "ㄨㄞ": "uai", "ㄨㄢ": "uan", "ㄨㄤ": "uang"
+            };
+
+            const initial = zhuyinCombo[0];
+            const final = zhuyinCombo.slice(1);
+
+            return zhuyinToPinyin[initial] + zhuyinToPinyin[final];
+        }
+
+        document.getElementById("textInput").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                checkInput();
+            }
+        });
+    </script>
+
+
+
+</body>
+</html>
